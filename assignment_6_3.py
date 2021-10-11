@@ -24,8 +24,8 @@ def search_age():
     for s in infile:
         if age in s:
             print(s[:-1])
-    else:
-        print("age not available")
+
+
 
 
 def searchage():
@@ -33,6 +33,8 @@ def searchage():
     for s in infile:
         if str(5) in s:
             print(s[:-1])
+
+
 
 def main():
     search_options = int(input("Enter your search choice:\n 1 for search by name: \n 2 for search by age: \n"))
@@ -46,17 +48,19 @@ def main():
 
 def search_age2():
     infile = open("names.txt", "r")
-    equal_age = int(input("Find the age equal to:\n"))
-    less_or_equal = int(input("Find the age less or equal to:\n"))
-    greater_or_equal = int(input("Find the age greater or equal to:\n"))
+    display_age = int(input("Enter the search age: \n"))
+    search_creteria = int(input("Enter age search creteria:\n 1 display age equal to:\n 2 display age less or equal to:\n 3 display age greater or equal to:\n"))
     for s in infile:
         name_age = s.split()
-        if int(name_age[1]) == equal_age:
-            print(s[:-1])
-        elif int(name_age[1]) <= less_or_equal:
-            print(s[:-1])
-        elif int(name_age[1]) >= greater_or_equal:
-            print(s[:-1])
-    else:
-        print("age not available")
+        age = int(name_age[1])
+        if search_creteria == 1:
+            if display_age == age:
+                print(s[:-1])
+        elif search_creteria == 2:
+            if display_age >= age:
+                print(s[:-1])
+        elif search_creteria == 3:
+            if display_age <= age:
+                print(s[:-1])
+
 search_age2()
